@@ -25,7 +25,7 @@ class Main {
         def rulesetString = config.ruleSet() ? "-rulesetfiles=${config.ruleSet()}" : ""
 
         //good command with hardcoded classpath TODO:make more flexible with directory classpath
-        def cmd = "java -Dorg.slf4j.simpleLogger.defaultLogLevel=off -classpath /usr/src/app/lib/groovy-all-2.4.12.jar:/usr/src/app/lib/codeclimate-codenarc-1.0.jar:/usr/src/app/lib/CodeNarc-1.0.jar:/usr/src/app/lib/GMetrics-1.0.jar:/usr/src/app/lib/slf4j-api-1.7.25.jar:/usr/src/app/lib/slf4j-simple-1.7.25.jar org.codenarc.CodeNarc -basedir=${config.appContext.codeFolder} ${rulesetString} ${includesString} ${excludesString} -report=CodeClimateReportWriter".replaceAll(/\s\s+/, ' ')
+        def cmd = "java -Dorg.slf4j.simpleLogger.defaultLogLevel=off -classpath /usr/src/app/lib/ivy-2.4.0.jar:/usr/src/app/lib/groovy-all-2.4.12.jar:/usr/src/app/lib/codeclimate-codenarc-1.0.jar:/usr/src/app/lib/CodeNarc-1.0.jar:/usr/src/app/lib/GMetrics-1.0.jar:/usr/src/app/lib/slf4j-api-1.7.25.jar:/usr/src/app/lib/slf4j-simple-1.7.25.jar org.codenarc.CodeNarc -basedir=${config.appContext.codeFolder} ${rulesetString} ${includesString} ${excludesString} -report=CodeClimateReportWriter".replaceAll(/\s\s+/, ' ')
 
         //minimal for testing:
         //def cmd = "java -Dorg.slf4j.simpleLogger.defaultLogLevel=off -classpath /usr/src/app/lib/groovy-all-2.4.12.jar:/usr/src/app/lib/CodeNarc-1.0.jar:/usr/src/app/lib/GMetrics-1.0.jar:/usr/src/app/lib/slf4j-api-1.7.25.jar:/usr/src/app/lib/slf4j-simple-1.7.25.jar org.codenarc.CodeNarc"
